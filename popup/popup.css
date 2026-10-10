@@ -1,0 +1,105 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1e1f22;
+  --muted: #5c5e66;
+  --border: #d4d7dc;
+  --accent: #5865f2;
+  --danger: #da373c;
+  --warn: #b5730b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #2b2d31;
+    --fg: #f2f3f5;
+    --muted: #b5bac1;
+    --border: #41434a;
+    --warn: #f0b232;
+    --danger: #f23f43;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 340px;
+  margin: 0;
+  padding: 14px;
+  font: 13px/1.4 system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+h1 { font-size: 16px; margin: 0 0 10px; }
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 3px;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+}
+
+input:disabled { opacity: 0.6; }
+
+.row { display: flex; gap: 8px; }
+.row label { flex: 1; }
+
+.buttons { display: flex; gap: 8px; margin-top: 4px; }
+
+button {
+  flex: 1;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+button#stop { background: var(--danger); }
+button:disabled { opacity: 0.45; cursor: default; }
+
+.error { color: var(--danger); margin: 8px 0 0; }
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.stats div { flex: 1; }
+.stats span { display: block; font-size: 20px; font-weight: 700; }
+.stats small { color: var(--muted); }
+
+.phase { margin: 6px 0; color: var(--muted); text-align: center; }
+
+.log {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  height: 160px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: 11px/1.4 ui-monospace, monospace;
+}
+
+.log li { margin-bottom: 2px; overflow-wrap: anywhere; }
+.log .warn { color: var(--warn); }
+.log .error { color: var(--danger); }
+.log time { color: var(--muted); margin-right: 4px; }

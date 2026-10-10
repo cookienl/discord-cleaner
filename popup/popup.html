@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Discord Cleaner</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Discord Cleaner</h1>
+
+  <form id="config">
+    <label>
+      Your Discord username
+      <input id="username" type="text" required placeholder="e.g. cookienl" autocomplete="off">
+    </label>
+    <label>
+      Start date (delete messages from this day onward)
+      <input id="startDate" type="date" required>
+    </label>
+    <div class="row">
+      <label>
+        Min delay (s)
+        <input id="minDelay" type="number" min="0.5" step="0.5" value="2">
+      </label>
+      <label>
+        Max delay (s)
+        <input id="maxDelay" type="number" min="0.5" step="0.5" value="4">
+      </label>
+    </div>
+    <label>
+      Max messages to delete (0 = no limit)
+      <input id="maxCount" type="number" min="0" step="1" value="0">
+    </label>
+
+    <div class="buttons">
+      <button id="start" type="submit">Start</button>
+      <button id="stop" type="button" disabled>Stop</button>
+    </div>
+  </form>
+
+  <p id="error" class="error" hidden></p>
+
+  <section class="stats">
+    <div><span id="deleted">0</span><small>deleted</small></div>
+    <div><span id="unconfirmed">0</span><small>unconfirmed</small></div>
+    <div><span id="skipped">0</span><small>skipped</small></div>
+  </section>
+  <p id="phase" class="phase">Idle</p>
+
+  <ol id="log" class="log"></ol>
+
+  <script src="popup.js"></script>
+</body>
+</html>

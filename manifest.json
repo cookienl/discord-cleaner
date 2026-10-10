@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Discord Cleaner",
+  "version": "1.0.0",
+  "description": "Deletes your own messages in a Discord server, one by one, starting from a chosen date.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://discord.com/*"],
+  "action": {
+    "default_title": "Discord Cleaner",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://discord.com/*"],
+      "js": ["src/selectors.js", "src/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
